@@ -1,0 +1,39 @@
+- [x] country
+- [x] banner
+- [x] npm
+- [x] fact
+- [x] instagramUser
+- [x] drake
+- [x] pooh
+- [x] ship 
+- [x] colorify
+- [x] biden
+- [x] joke
+- [x] pikachu
+- [x] drip
+- [ ] clown
+- [ ] translate
+- [ ] reverse
+- [ ] uncover
+- [ ] ad
+- [ ] blur
+- [ ] invert
+- [ ] greyscale
+- [ ] alert
+- [ ] caution
+- [ ] colorinfo
+- [ ] jokeoverhead
+- [ ] mnm: 
+- [ ] mock: 
+- [ ] doublestruck
+- [ ] texttomorse
+- [ ] wouldyourather
+- [ ] randommeme
+- [ ] welcomecard
+- [ ] itunes
+- [ ] chatbot
+- [ ] playstore
+- [ ] encode:
+- [ ] decode
+- [ ] facts
+- [ ] _8ball
