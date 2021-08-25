@@ -1,4 +1,5 @@
 import requests as r
+import utils
 
 # /country endpoint 
 def country(name, property=None):
@@ -37,13 +38,10 @@ def npm(name,property=None):
 		return x.json()[f'{property}']
 
 # /fact endpoint
-def fact(property=None):
-	x=r.get("https://api.popcatdev.repl.co/fact")
-	if property == None:
-		return x.json()
-	else:
-		return x.json()[f'{property}']
-
+def fact():
+	x = r.get("https://api.popcatdev.repl.co/fact")
+  return x.json()['fact']
+  
 # /instagram endpoint
 def instagramUser(user, property=None):
 	x = r.get(f"https://api.popcatdev.repl.co/instagram?user={user}")
@@ -96,12 +94,9 @@ def biden(text):
 	return url
 
 # /joke endpoint
-def joke(property=None):
-	x = r.get('https://api.popcatdev.repl.co/joke')
-	if property == None:
-		return x.json()
-	else:
-		return x.json()[property]
+def joke():
+  x = r.get('https://api.popcatdev.repl.co/joke')
+	return x.json()['joke']
 
 # /pikachu endpoint
 def pikachu(text):
@@ -122,3 +117,10 @@ def clown(image):
 	url f"https://api.popcatdev.repl.co/drip?image={x}"
 
 	return url
+
+def mock(text):
+  x=replaced(text)
+
+  return x
+
+print(mock("sus"))

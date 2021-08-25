@@ -11,7 +11,7 @@
 - [x] joke
 - [x] pikachu
 - [x] drip
-- [ ] clown
+- [x] clown
 - [ ] translate
 - [ ] reverse
 - [ ] uncover
