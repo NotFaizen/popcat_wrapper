@@ -12,27 +12,26 @@
 - [x] pikachu
 - [x] drip
 - [x] clown
-- [ ] translate
-- [ ] reverse
-- [ ] uncover
-- [ ] ad
-- [ ] blur
-- [ ] invert
-- [ ] greyscale
-- [ ] alert
-- [ ] caution
-- [ ] colorinfo
-- [ ] jokeoverhead
-- [ ] mnm: 
-- [ ] mock: 
-- [ ] doublestruck
-- [ ] texttomorse
-- [ ] wouldyourather
-- [ ] randommeme
-- [ ] welcomecard
-- [ ] itunes
-- [ ] chatbot
-- [ ] playstore
+- [x] translate
+- [x] reverse
+- [x] uncover
+- [x] ad
+- [x] blur
+- [x] invert
+- [x] greyscale
+- [x] alert
+- [x] caution
+- [x] colorinfo
+- [x] jokeoverhead
+- [x] mnm: 
+- [x] mock: 
+- [x] doublestruck
+- [x] texttomorse
+- [x] wouldyourather
+- [x] randommeme
+- [x] welcomecard
+- [x] itunes
+- [x] playstore
 - [ ] encode:
 - [ ] decode
 - [ ] facts

@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="popcat-wrapper",
-    version="0.0.1",
+    name="popcat_wrapper",
+    version="1.0",
     author="NotFaizen",
     author_email="munavir370@gmail.com",
     url = "https://github.com/NotFaizen/popcat_wrapper",
