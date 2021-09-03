@@ -3,7 +3,7 @@ import utils
 import asyncio
 from aiohttp import ClientSession
 base_url = "https://api.popcat.xyz/"
-
+base = "https://api.popcat.xyz/" 
 # /country endpoint 
 async def country(name, property=None):
   async with ClientSession() as cs:
@@ -187,11 +187,14 @@ async def caution(text):
   url = f"{base_url}caution?text={text}"
   return url
 
-async def colorinfo(color,property):
+async def colorinfo(color,property=None):
   async with ClientSession() as cs:
     async with cs.get(f"https://api.popcat.xyz/color/{color}") as r:
       data = await r.json()
-      return data[property]
+      if property == None:
+        return data
+      else:
+        return data[property]
 
 async def jokeoverhead(image):
   image = utils.pngImage(image)
@@ -219,35 +222,47 @@ async def texttomorse(text):
       data = r.json()
       return data['morse']
 
-async def wouldyourather(property):
+async def wouldyourather(property=None):
   url = f"{base_url}wyr"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
       data = r.json()
-      return data[property]
+      if property == None:
+        return data
+      else:
+        return data[property]
 
-async def randommeme(property):
+async def randommeme(property=None):
   url = f"{base_url}meme"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
       data = r.json()
-      return data[property]
+      if property == None:
+        return data
+      else:
+        return data[property]
 
-async def itunes(song, property):
+async def itunes(song, property=None):
   song = utils.replaced(song)
   url = f"{base_url}itunes?song={song}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
       data = r.json()
-      return data[property]
+      if property == None:
+        return data
+      else:
+        return data[property]
 
-async def playstore(app, property):
+async def playstore(app, property=None):
   app = utils.replaced(app)
   url = f"{base_url}playstore?q={app}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
       data = r.json()
-      return data[property]
+      if property == None:
+        return data
+      else:
+        return data[property]
 
 async def binary_encode(text):
   text = utils.replaced(text)
@@ -257,5 +272,77 @@ async def binary_encode(text):
       data = r.json()
       return data['binary']
 
+async def binary_decode(binary):
+  binary = utils.replaced(binary)
+  url = f"{base_url}decode?binary={binary}"
+  async with ClientSession() as cs:
+    async with cs.get(url) as r:
+      data = r.json()
+      return data['text']
+
+async def facts(text):
+  text = utils.replaced(text)
+  url = f"{base_url}facts?text={text}"
+  return url
+
+async def _8ball():
+  async with ClientSession as cs:
+    async with cs.get(f"{base_url}8ball") as r:
+      data = await r.json()
+      return data['answer']
+
+def welcomecard(background, text1, text2, text3, avatar):
+  text1 = utils.replaced(text1)
+  text2 = utils.replaced(text2)
+  text3 = utils.replaced(text3)
+  avatar = utils.pngImage(avatar)
+
+  url = f"{base_url}welcomecard?background={background}&text1={text1}&text2={text2}&text3={text3}&avatar={avatar}"
+
+  return url
+
+async def sadcat(text):
+  text = utils.replaced(text)
+  url = f"{base_url}sadcat?text={text}"
+
+  return url
+
+async def oogway(text):
+  text = utils.replaced(text)
+  url = f"{base_url}oogway?text={text}"
+  return url
+
+async def communism(image):
+  image = utils.pngImage(image)
+  url = f"{base_url}communism?image={image}"
+
+  return url
+
+async def car(property=None):
+  url = f"{base_url}car"
+
+  async with ClientSession() as cs:
+    async with cs.get(url) as r:
+      data = await r.json()
+      if property == None:
+        return data
+      else:
+        return data[property]
+
+async def showerthoughts():
+  url = f"{base}showerthoughts" 
+  async with ClientSession() as cs:
+    async with cs.get(url) as r:
+      data = await r.json()
+      return data['result']
+
+async def quote():
+  async with ClientSession() as cs:
+    async with cs.get(f"{base}quote") as r:
+      data = await r.json()
+      return data['quote']
+
+
+
 async def secret():
-  return "If you're getting this message, that means you have found the easter egg / secret; you are cool, believe it! (DM NotFaizen#3463 with screenshot proof for a cookie)"
+  return utils.secretmsg()

@@ -32,7 +32,7 @@
 - [x] welcomecard
 - [x] itunes
 - [x] playstore
-- [ ] encode:
-- [ ] decode
-- [ ] facts
-- [ ] _8ball
+- [x] encode:
+- [x] decode
+- [x] facts
+- [x] _8ball
