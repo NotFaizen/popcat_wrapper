@@ -342,7 +342,27 @@ async def quote():
       data = await r.json()
       return data['quote']
 
+async def lyrics(song, property=None):
+  song = utils.replaced(song)
 
+  async with ClientSession() as cs:
+    async with cs.get(f"{base}lyrics?song={song}") as r:
+      data = r.json()
+    if property == None:
+      return data
+    else:
+      return data[property]
+
+async def subreddit(name, property=None):
+  url = f"{base}subreddit/{name}"
+  async with ClientSession() as cs:
+    async with cs.get(url) as r:
+      data = await r.json()
+      
+      if property == None: 
+        return data
+      else: 
+        return data[property]
 
 async def secret():
   return utils.secretmsg()
