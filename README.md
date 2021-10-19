@@ -11,14 +11,14 @@ pip install popcat_wrapper
 
 ### Randomfacts command, no input example:
 ```py
-import discord, aiohttp, asyncio
+import discord
 from discord.ext import commands
 import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
 
 @bot.command()
 async def randomfacts(ctx):
-  res = pop.randomfacts(text)
+  res = await pop.randomfacts()
 
   await ctx.send(res)
 
@@ -28,7 +28,7 @@ bot.run("discord bot token")
 ### Pikachu command, one input example:
 
 ```py
-import discord, aiohttp, asyncio
+import discord
 from discord.ext import commands
 import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
@@ -36,7 +36,7 @@ bot = commands.Bot(command_prefix=">")
 @bot.command()
 async def pikachu(ctx):
   text = "String"
-  image = pop.pikachu(text)
+  image = await pop.pikachu(text)
 
   await ctx.send(image)
 
@@ -45,7 +45,7 @@ bot.run("discord bot token")
 
 ### Drake meme command, more than one text input example: 
 ```py
-import discord, aiohttp, asyncio
+import discord
 from discord.ext import commands
 import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
@@ -54,7 +54,7 @@ bot = commands.Bot(command_prefix=">")
 async def drake(ctx):
   text = "String"
   text2 = "String 2"
-  image = pop.drake(text, text2)
+  image = await pop.drake(text, text2)
 
   await ctx.send(image)
 
@@ -62,7 +62,7 @@ bot.run("discord bot token")
 ```
 ### Ad command, image input example:
 ```py
-import discord, aiohttp, asyncio
+import discord
 from discord.ext import commands
 import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
@@ -72,7 +72,7 @@ async def drake(ctx, member: discord.Member=None):
   if member == None:
     member = ctx.author
   pfp = member.avatar_url_as(size=128)
-  image = pop.ad(pfp)
+  image = await pop.ad(pfp)
 
   await ctx.send(image)
 
@@ -84,7 +84,7 @@ bot.run("discord bot token")
 import popcat_wrapper as pop
 
 color = "ffcc99"
-res = pop.country(name="canada")
+res = await pop.country(name="canada")
 
 print(res)
 
@@ -124,7 +124,7 @@ bot = commands.Bot(command_prefix=">")
 
 @bot.command()
 async def welcomecard(ctx):
-  image = pop.welcomecard(background,text1,text2,text3,)
+  image = await pop.welcomecard(background,text1,text2,text3,)
 
   await ctx.send(image)
 
@@ -135,45 +135,55 @@ bot.run("discord bot token")
 You can get a full list of the possible API endpoints [Here](https://api.popcatdev.repl.co)
 But here is the list:
 
- - `drake(text1, text2)`
- - `pooh(text1, text2)`
- - `ship(image1, image2)`
- - `colorify(image, color)`
- - `biden(text)`
- - `pikachu(text)`
- - `drip(image)`
- - `clown(image)`
- - `ad(image)`
- - `blur(image)`
- - `invert(image)`
- - `greyscale(image)`
- - `jokeoverhead(image)`
- - `mnm(image)`
- - `translate(text, language)`
- - `reverse(text)`
- - `alert(text)`
- - `caution(text)`
- - `mock(text)`
- - `facts(text)`
- - `encode(text)`
- - `decode(binary)`
- - `doublestruck(text)`
- - `texttomorse(text)`
- - `playstore(app, property)`
- - `itunes(song, property)`
- - `npm(name, property)`
- - `instagramUser(user, property)`
- - `car(property)`
- - `colorinfo()`
- - `welcomecard(background, text1, text2, text3, avatar)`
- - `joke()`
- - `randommeme()`
- - `fact()`
- - `_8ball()`
-
-
+- `drake(text1, text2)`
+- `pooh(text1, text2)`
+- `ship(image1, image2)`
+- `colorify(image, color)`
+- `biden(text)`
+- `pikachu(text)`
+- `drip(image)`
+- `clown(image)`
+- `ad(image)`
+- `blur(image)`
+- `invert(image)`
+- `greyscale(image)`
+- `jokeoverhead(image)`
+- `mnm(image)`
+- `translate(text, language)`
+- `reverse(text)`
+- `alert(text)`
+- `caution(text)`
+- `mock(text)`
+- `facts(text)`
+- `encode(text)`
+- `decode(binary)`
+- `doublestruck(text)`
+- `texttomorse(text)`
+- `playstore(app, property)`
+- `itunes(song, property)`
+- `npm(name, property)`
+- `instagramUser(user, property)`
+- `car(property)`
+- `colorinfo()`
+- `welcomecard(background, text1, text2, text3, avatar)`
+- `joke()`
+- `randommeme()`
+- `fact()`
+- `_8ball()`
+- `wanted(image)`
+- `simp(image)`
+- `lulcat(text)`
+- `weather(location, property)`
+- `opinion(image, text)`
+- `pet(image)`
+- `url_shortener(url, extension)`
+- `screenshot(url)`
+- `github(user, property)`
+- `whowouldwin(image1, image2)`
 
 ## Credits
-Made with <3 by NotFaizen#2005
+Made with <3 (and python) by reset#0002 and NotFaizen#2005
 
 Join Our Discord Server! [Link](https://dsc.gg/popcatcom)
+
+

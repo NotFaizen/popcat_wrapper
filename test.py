@@ -8,10 +8,4 @@ url2 = "https://cdn.discordapp.com/avatars/577009668266917937/a_0f9bb20bfe09e60a
 
 card = welcomecard("https://cdn.discordapp.com/attachments/850808002545319957/859359637106065408/bg.png", "Your mom gay bruh", "jk jk", "lol", url)
 
-def test():
-  r = get("https://api.popcat.xyz/quote")
-  data = r.json()
-
-  return data
-
-print(test()['quote'])
+print(wanted())
