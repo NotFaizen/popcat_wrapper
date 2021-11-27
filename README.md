@@ -5,7 +5,7 @@ Join [our server](https://discord.gg/UFsejAWMmJ) if you want to have fun or need
 
 ## Installation
 ```
-pip install popcat_wrapper
+pip install popcat-wrapper
 ```
 ## Examples
 
@@ -13,7 +13,7 @@ pip install popcat_wrapper
 ```py
 import discord
 from discord.ext import commands
-import popcat_wrapper as pop
+from popcat_wrapper import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
 
 @bot.command()
@@ -30,7 +30,7 @@ bot.run("discord bot token")
 ```py
 import discord
 from discord.ext import commands
-import popcat_wrapper as pop
+from popcat_wrapper import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
 
 @bot.command()
@@ -47,7 +47,7 @@ bot.run("discord bot token")
 ```py
 import discord
 from discord.ext import commands
-import popcat_wrapper as pop
+from popcat_wrapper import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
 
 @bot.command()
@@ -64,7 +64,7 @@ bot.run("discord bot token")
 ```py
 import discord
 from discord.ext import commands
-import popcat_wrapper as pop
+from popcat_wrapper import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
 
 @bot.command()
@@ -81,7 +81,7 @@ bot.run("discord bot token")
 
 ### Country command, object input example
 ```py
-import popcat_wrapper as pop
+from popcat_wrapper import popcat_wrapper as pop
 
 color = "ffcc99"
 res = await pop.country(name="canada")
@@ -119,7 +119,7 @@ This method applies to Playstore, iTunes, WouldYouRather, RandomMeme, instagramU
 ```py
 import discord, aiohttp, asyncio
 from discord.ext import commands
-import popcat_wrapper as pop
+from popcat_wrapper import popcat_wrapper as pop
 bot = commands.Bot(command_prefix=">")
 
 @bot.command()

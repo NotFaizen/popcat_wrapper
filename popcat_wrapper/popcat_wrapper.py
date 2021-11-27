@@ -1,5 +1,4 @@
-import utils
-from utils import *
+from . import popcatutils
 from aiohttp import ClientSession
 base_url = "https://api.popcat.xyz/"
 base = "https://api.popcat.xyz/" 
@@ -131,7 +130,7 @@ async def clown(image:str):
 	return url
 
 async def mock(text:str):
-  msg = utils.replaced(text)
+  msg = popcatutils.replaced(text)
   async with ClientSession() as cs:
     async with cs.get(f"https://api.popcat.xyz/mock?text={msg}") as r:
       data = await r.json()
@@ -139,50 +138,50 @@ async def mock(text:str):
 
 async def translate(text:str, language):
   y = text.replace(" ", "+")
-  async with ClientSession as cs:
+  async with ClientSession() as cs:
     async with cs.get(f"https://api.popcat.xyz/translate?text={y}&to={language}") as r:
       data = r.json()
       return data['translated']
 
 async def reverse(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   async with ClientSession() as cs:
     async with cs.get(f"https://api.popcat.xyz/reverse?text={text}") as r:
       data = r.json()
       return data['text']
 
 async def uncover(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}uncover?image={image}"
   return url
 
 async def ad(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}ad?image={image}"
   return url
   
 async def blur(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}blur?image={image}"
   return url
 
 async def invert(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}invert?image={image}"
   return url
 
 async def greyscale(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}grayscale?image={image}"
   return url
 
 async def alert(text:str):
-  # text = utils.replaced(text)
+  # text = popcatutils.replaced(text)
   # url = f"{base_url}alert?text={text}"
   return "Deprecated until further notice"
 
 async def caution(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}caution?text={text}"
   return url
 
@@ -196,17 +195,17 @@ async def colorinfo(color,property=None):
         return data[property]
 
 async def jokeoverhead(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}jokeoverhead?image={image}"
   return url
 
 async def mnm(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}mnm?image={image}"
   return url
 
 async def doublestruck(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}doublestruck?text={text}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
@@ -214,7 +213,7 @@ async def doublestruck(text:str):
       return data['text']
 
 async def texttomorse(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}texttomorse?text={text}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
@@ -242,7 +241,7 @@ async def randommeme(property=None):
         return data[property]
 
 async def itunes(song:str, property=None):
-  song = utils.replaced(song)
+  song = popcatutils.replaced(song)
   url = f"{base_url}itunes?song={song}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
@@ -253,7 +252,7 @@ async def itunes(song:str, property=None):
         return data[property]
 
 async def playstore(app:str, property=None):
-  app = utils.replaced(app)
+  app = popcatutils.replaced(app)
   url = f"{base_url}playstore?q={app}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
@@ -264,7 +263,7 @@ async def playstore(app:str, property=None):
         return data[property]
 
 async def binary_encode(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}encode?text={text}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
@@ -272,7 +271,7 @@ async def binary_encode(text:str):
       return data['binary']
 
 async def binary_decode(binary):
-  binary = utils.replaced(binary)
+  binary = popcatutils.replaced(binary)
   url = f"{base_url}decode?binary={binary}"
   async with ClientSession() as cs:
     async with cs.get(url) as r:
@@ -280,39 +279,39 @@ async def binary_decode(binary):
       return data['text']
 
 async def facts(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}facts?text={text}"
   return url
 
 async def _8ball():
-  async with ClientSession as cs:
+  async with ClientSession() as cs:
     async with cs.get(f"{base_url}8ball") as r:
       data = await r.json()
       return data['answer']
 
 async def welcomecard(background:str, text1:str, text2:str, text3:str, avatar:str):
-  text1 = utils.replaced(text1)
-  text2 = utils.replaced(text2)
-  text3 = utils.replaced(text3)
-  avatar = utils.pngImage(avatar)
+  text1 = popcatutils.replaced(text1)
+  text2 = popcatutils.replaced(text2)
+  text3 = popcatutils.replaced(text3)
+  avatar = popcatutils.pngImage(avatar)
 
   url = f"{base_url}welcomecard?background={background}&text1={text1}&text2={text2}&text3={text3}&avatar={avatar}"
 
   return url
 
 async def sadcat(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}sadcat?text={text}"
 
   return url
 
 async def oogway(text:str):
-  text = utils.replaced(text)
+  text = popcatutils.replaced(text)
   url = f"{base_url}oogway?text={text}"
   return url
 
 async def communism(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base_url}communism?image={image}"
 
   return url
@@ -342,7 +341,7 @@ async def quote():
       return data['quote']
 
 async def lyrics(song:str, property=None):
-  song = utils.replaced(song)
+  song = popcatutils.replaced(song)
 
   async with ClientSession() as cs:
     async with cs.get(f"{base}lyrics?song={song}") as r:
@@ -365,27 +364,27 @@ async def subreddit(name:str, property=None):
 
 
 async def wanted(image:str):
-  image = utils.pngImage(image)
+  image = popcatutils.pngImage(image)
   url = f"{base}wanted?image={image}"
   
   return url
 
 async def gunOverlay(image:str):
   base_url = "https://api.popcat.xyz/gun?image="
-  pngIMG = utils.pngImage(image)
+  pngIMG = popcatutils.pngImage(image)
   return base_url+pngIMG
 
 async def simp(image:str):
   base_url = "https://api.popcat.xyz/simpstamp?image="
-  pngIMG = utils.pngImage(image)
+  pngIMG = popcatutils.pngImage(image)
   return base_url+pngIMG
 
 async def lulcat(text:str):
   base_url = "https://api.popcat.xyz/lulcat?text="+text
   a = ClientSession()
   resp = await a.get(base_url)
-  jsonresponse = await resp.json()["text"]
-  return jsonresponse
+  jsonresponse = await resp.json()
+  return jsonresponse["text"]
 
 async def weather(location:str, property=None):
   base_url = "https://api.popcat.xyz/weather?q="+location
@@ -398,17 +397,17 @@ async def weather(location:str, property=None):
     return jsonresponse[property]
   
 async def opinion(image:str, text:str):
-  image = pngImage(image)
-  text = replaced(text)
+  image = popcatutils.pngImage(image)
+  text = popcatutils.replaced(text)
   url = f"{base}opinion?image={image}&text={text}"
   return url
 
 async def pet(image:str)->str:
-  img = utils.pngImage(image)
+  img = popcatutils.pngImage(image)
   return f"https://api.popcat.xyz/pet?image={img}"
 
 async def url_shortner(url:str,extension:str) -> str:
-  if utils.isURL(url) == false:
+  if popcatutils.isURL(url) == False:
     return "url_shortener(): Invalid URL provided" 
   base_url = f"{base}shorten?url={url}&extension={extension}"
   client = ClientSession()
@@ -417,7 +416,7 @@ async def url_shortner(url:str,extension:str) -> str:
   return resp["shortened"]
 
 async def screenshot(url:str)->str:
-  if utils.isURL(url) == false:
+  if popcatutils.isURL(url) == False:
     return "screenshot(): Invalid URL provided"
   return f"https://api.popcat.xyz/screenshot?url={url}"
 
@@ -433,6 +432,6 @@ async def github(user:str, property=None) -> dict:
     return resp[property]
 
 async def whowouldwin(image1:str,image2:str):
-  image1 = utils.pngImage(image1)
-  image2 = utils.pngImage(image2)
+  image1 = popcatutils.pngImage(image1)
+  image2 = popcatutils.pngImage(image2)
   return f"https://api.popcat.xyz/whowouldwin?image2={image2}&image1={image1}"

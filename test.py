@@ -1,11 +1,11 @@
-from popcat_wrapper import *
-import utils
-from io import BytesIO
-from requests import get
+import asyncio
+from aiohttp import ClientSession
 
-url = "https://cdn.discordapp.com/avatars/551786741296791562/2550e13a9d81e958225d7cd909838c0f.webp?size=2048"
-url2 = "https://cdn.discordapp.com/avatars/577009668266917937/a_0f9bb20bfe09e60a7159eaac1ce555d4.gif?size=2048"
+async def main():
+  async with ClientSession as cs:
+    async with cs.get(f"https://api.popcat.xyz/8ball") as r:
+      data = await r.json()
+      return data['answer']
 
-card = welcomecard("https://cdn.discordapp.com/attachments/850808002545319957/859359637106065408/bg.png", "Your mom gay bruh", "jk jk", "lol", url)
-
-print(wanted())
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
